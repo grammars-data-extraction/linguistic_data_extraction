@@ -26,9 +26,9 @@ class Extractor:
         self.lang_list = ["ca", "zh", "en", "fr", "de", "it", "pt", "ru", "es", "nl"]
         self.models = dict()
         self.stopwords = dict()
-        self.embedder = SentenceTransformer('bert-base-multilingual-cased')
+        self.embedder = SentenceTransformer("linguistic_data_extraction/bert-base-multilingual-cased")
 
-        modelPath = "bert-base-multilingual-cased"
+        modelPath = "linguistic_data_extraction/bert-base-multilingual-cased"
 
         self.embedder.save(modelPath)
         self.embedder = SentenceTransformer(modelPath)
