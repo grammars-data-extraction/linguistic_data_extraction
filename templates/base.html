@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Extraction</title>
+  <link href="https://fonts.googleapis.com/css?family=Arvo&display=swap" rel="stylesheet">
+  <link href="{{url_for('static', filename='style.css')}}" type="text/css" rel="stylesheet">
+</head>
+<body>
+  <div class="holder">
+    <div class="hellobox">
+      <h3>Linguistic Data Extractor</h3>
+    </div>
+    <ul class="menu cf">
+	  <li><a href="/">Main page</a></li>
+    <li><a href="bm25.html">BM25</a></li>
+	  <li><a href="reranker.html">BM25 + BERT Reranker</a></li>
+    </ul>
+    <div class="holder small-spacer">
+    </div>
+  </div>
+  {% block content %} {% endblock %}
+
+</body>
+</html>
