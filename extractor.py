@@ -23,7 +23,7 @@ class Extractor:
         os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
         self.df = pd.read_excel("linguistic_data_extraction/grammars_database.xlsx")
-        self.lang_list = ["ca", "zh", "en", "fr", "de", "it", "pt", "ru", "es", "nl"]
+        self.lang_list = ["en", "fr", "de", "it", "es", "nl"]
         self.models = dict()
         self.stopwords = dict()
         self.embedder = SentenceTransformer("linguistic_data_extraction/bert-base-multilingual-cased")
@@ -39,12 +39,17 @@ class Extractor:
         for lang in self.lang_list:
             exec("from spacy.lang.%s.stop_words import STOP_WORDS" % (lang))
             exec("self.stopwords[lang] = spacy.lang.%s.stop_words.STOP_WORDS" % (lang))
-            if lang in ("en", "zh"):
+            if lang == "en":
                 model_name = lang + "_core_web_sm"
             else:
                 model_name = lang + "_core_news_sm"
-
-            self.models[lang] = spacy.load(model_name, disable=['parser', 'ner'])
+            
+            try:
+                self.models[lang] = spacy.load(model_name, disable=['parser', 'ner'])
+            except:
+                command = "python -m spacy download " + model_name
+                os.system(command)
+                self.models[lang] = spacy.load(model_name, disable=['parser', 'ner'])
 
     def get_lang(self, filename):
         text = textract.process(filename).decode("utf-8") 
@@ -252,6 +257,7 @@ class Extractor:
 
                     if not os.path.exists(fname_desc):
                         desc = self.get_description(query, lang)
+                        print(query, lang)
                         desc_nlp = nlp(self.get_description(query, lang))
                         lemmatized_desc = []
 
