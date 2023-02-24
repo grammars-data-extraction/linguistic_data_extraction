@@ -9,3 +9,5 @@ In order to use the search engine,
 - install the necessary dependencies from the <code>requirements.txt</code> file;
 
 - run the <code>main.py</code> script.
+
+The required spaCy models will be installed upon running the <code>main.py</code> script for the first time.
