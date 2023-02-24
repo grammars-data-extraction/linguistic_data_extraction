@@ -11,3 +11,7 @@ In order to use the search engine,
 - run the <code>main.py</code> script.
 
 The required spaCy models will be installed upon running the <code>main.py</code> script for the first time.
+
+In this version of the search engine, the following languages are available: Samaritan Aramaic, Lule, Angami, Javanese, Sangir, Pampangan, Hawaiian, Albanian-Gheg, Karelian, Tibetan.
+
+The following linguistic features ara available: Reduplication, Plural, Declension, Nominative case, Ergative case, Absolutive case, Accusative case, Word order.
