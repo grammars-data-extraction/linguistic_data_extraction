@@ -4,7 +4,7 @@ In order to use the search engine,
 
 - download and extract the repository into a folder named <code>linguistic_data_extraction</code>;
 
-- download the [bert-base-multilingual-cased](https://huggingface.co/bert-base-multilingual-cased) model into the folder;
+- download the [bert-base-multilingual-cased](https://huggingface.co/bert-base-multilingual-cased) and place it outside of <code>linguistic_data_extraction</code>;
 
 - install the necessary dependencies from the <code>requirements.txt</code> file;
 
